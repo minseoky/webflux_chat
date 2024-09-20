@@ -1,5 +1,6 @@
 package com.example.demo.config.security;
 
+import com.example.demo.exception.exceptions.UserNotFoundException;
 import com.example.demo.repository.UserRepository;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.User;
@@ -22,6 +23,7 @@ public class CustomUserDetailsService implements ReactiveUserDetailsService {
                 .map(user -> User.builder()
                         .username(user.getUsername())
                         .password(user.getPassword()) // Bcrypt로 암호화된 비밀번호
-                        .build());
+                        .build())
+                .switchIfEmpty(Mono.error(new UserNotFoundException("Username " + username + " not found")));
     }
 }
