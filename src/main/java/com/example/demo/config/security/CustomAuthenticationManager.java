@@ -30,7 +30,7 @@ public class CustomAuthenticationManager implements ReactiveAuthenticationManage
                 })
                 .map(userDetails -> (Authentication) new UsernamePasswordAuthenticationToken(
                         authentication.getName(), null, userDetails.getAuthorities()))
-                .switchIfEmpty(Mono.error(new LoginFailedException("Invalid username or password")));
+                .switchIfEmpty(Mono.error(new LoginFailedException("Invalid password")));
 
     }
 }
