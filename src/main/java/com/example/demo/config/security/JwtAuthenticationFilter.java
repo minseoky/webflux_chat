@@ -3,7 +3,6 @@ package com.example.demo.config.security;
 import com.example.demo.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpCookie;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

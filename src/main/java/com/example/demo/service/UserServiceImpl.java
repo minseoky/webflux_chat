@@ -5,7 +5,6 @@ import com.example.demo.dto.data.FindUserResponseData;
 import com.example.demo.dto.request.UserLoginRequestDto;
 import com.example.demo.dto.request.UserRegistrationRequestDto;
 import com.example.demo.entity.UserEntity;
-import com.example.demo.exception.exceptions.LoginFailedException;
 import com.example.demo.exception.exceptions.UserNotFoundException;
 import com.example.demo.exception.exceptions.UsernameDuplicatedException;
 import com.example.demo.repository.UserRepository;
@@ -14,14 +13,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
-
-import java.time.Duration;
 
 
 @Service
